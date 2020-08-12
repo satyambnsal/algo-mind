@@ -12,12 +12,15 @@ export default class LinkList {
 
   append(value) {
     const node = new LinkListNode(value);
-    let temp = this.head;
-
-    while (temp.next) {
-      temp = temp.next;
+    if (!this.head) {
+      this.head = node;
+    } else {
+      let temp = this.head;
+      while (temp.next) {
+        temp = temp.next;
+      }
+      temp.next = node;
     }
-    temp.next = node;
   }
 
   delete(value) {
@@ -27,7 +30,6 @@ export default class LinkList {
       tempPrev = temp;
       temp = temp.next;
     }
-    console.log(temp);
     if (temp) {
       tempPrev.next = temp.next;
       temp.next = null;
@@ -37,7 +39,6 @@ export default class LinkList {
   traverse() {
     let temp = this.head;
     while (temp) {
-      console.log(temp.value);
       temp = temp.next;
     }
   }
@@ -51,5 +52,16 @@ export default class LinkList {
       temp = temp.next;
     }
     return false;
+  }
+
+  length() {
+    let temp = this.head;
+    let count = 0;
+
+    while (temp) {
+      count += 1;
+      temp = temp.next;
+    }
+    return count;
   }
 }
