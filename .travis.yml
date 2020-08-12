@@ -1,0 +1,16 @@
+os:
+  - linux
+  - osx
+dist: trusty
+language: node_js
+node_js:
+  - '12'
+install:
+  - npm install -g codecov
+  - npm install -g yarn
+  - yarn
+script:
+  - yarn run ci
+  - codecov
+notifications:
+  email: false

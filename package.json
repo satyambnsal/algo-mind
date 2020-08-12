@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint src/*",
     "dev": "babel-node src/example.js",
-    "test": "jest"
+    "test": "jest",
+    "ci": "yarn run lint && yarn run test --coverage"
   },
   "repository": {
     "type": "git",
